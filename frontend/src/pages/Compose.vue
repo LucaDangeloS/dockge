@@ -132,6 +132,7 @@
                             :processing="processing"
                             @start-service="startService"
                             @stop-service="stopService"
+                            @restart-service="restartService"
                         />
                     </div>
 
@@ -820,6 +821,18 @@ export default {
             });
         },
 
+        restartService(serviceName) {
+            this.processing = true;
+
+            this.$root.emitAgent(this.endpoint, "restartService", this.stack.name, serviceName, (res) => {
+                this.processing = false;
+                this.$root.toastRes(res);
+
+                if (res.ok) {
+                    this.requestServiceStatus(); // Refresh service status
+                }
+            });
+        },
     }
 };
 </script>
