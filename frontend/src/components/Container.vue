@@ -28,7 +28,7 @@
                         Start
                     </button>
                     <button v-if="status === 'running' || status === 'healthy' || status === 'unhealthy'"
-                            class="btn btn-danger me-2"
+                            class="btn btn-danger m-2"
                             :disabled="processing"
                             @click="stopService">
                         <font-awesome-icon icon="stop" class="me-1" />
