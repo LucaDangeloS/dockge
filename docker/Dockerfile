@@ -39,5 +39,5 @@ CMD ["tsx", "./backend/index.ts"]
 ############################################
 # Mark as Nightly
 ############################################
-FROM release AS nightly
-RUN npm run mark-as-nightly
+#FROM release AS nightly
+#RUN pnpm run mark-as-nightly
