@@ -255,12 +255,14 @@ export default {
 <style scoped lang="scss">
 .main-terminal {
     height: 100%;
+    /* overflow-x: scroll; */
 }
 </style>
 
 <style lang="scss">
 .terminal {
-    background-color: black !important;
+    /* background-color: black !important; */
+    padding: 10px 15px;
     height: 100%;
 }
 </style>

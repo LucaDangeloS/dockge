@@ -1,12 +1,12 @@
 ############################################
 # Healthcheck Binary
 ############################################
-FROM louislam/dockge:build-healthcheck AS build_healthcheck
+FROM local/dockge:build-healthcheck AS build_healthcheck
 
 ############################################
 # Build
 ############################################
-FROM louislam/dockge:base AS build
+FROM local/dockge:base AS build
 WORKDIR /app
 COPY --chown=node:node  ./package.json ./package.json
 COPY --chown=node:node  ./package-lock.json ./package-lock.json
@@ -15,10 +15,11 @@ RUN npm ci
 ############################################
 # ⭐ Main Image
 ############################################
-FROM louislam/dockge:base AS release
+FROM local/dockge:base AS release
 WORKDIR /app
 COPY --chown=node:node --from=build_healthcheck /app/extra/healthcheck /app/extra/healthcheck
 COPY --from=build /app/node_modules /app/node_modules
+COPY frontend-dist /app/frontend-dist
 COPY --chown=node:node  . .
 RUN mkdir ./data
 
