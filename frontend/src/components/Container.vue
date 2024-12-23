@@ -16,7 +16,7 @@
             </div>
             <div class="col-7">
                 <div class="function">
-                    <router-link v-if="!isEditMode" class="btn btn-normal" :to="terminalRouteLink" disabled="">
+                    <router-link v-if="!isEditMode" class="btn btn-normal me-2" :to="terminalRouteLink" disabled="">
                         <font-awesome-icon icon="terminal" />
                         Bash
                     </router-link>
@@ -28,7 +28,7 @@
                         Start
                     </button>
                     <button v-if="status === 'running' || status === 'healthy' || status === 'unhealthy'"
-                            class="btn btn-danger m-2"
+                            class="btn btn-danger me-2"
                             :disabled="processing"
                             @click="stopService">
                         <font-awesome-icon icon="stop" class="me-1" />
